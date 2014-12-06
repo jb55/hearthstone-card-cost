@@ -51,7 +51,7 @@ attributes:
       - common
       - rare
       - epic
-      - legednary
+      - legendary
   * battlecry: `1 | 0`
   * charge: `1 | 0`
   * combo: `1 | 0`
