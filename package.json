@@ -1,0 +1,12 @@
+{
+  "name": "hearthstone-card-cost",
+  "description": "predict a Hearthstone card cost",
+  "keywords": ["hearthstone"],
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jb55/hearthstone-card-cost.git"
+  },
+  "main": "index.js",
+  "dependencies": {}
+}
