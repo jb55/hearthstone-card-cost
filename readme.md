@@ -16,8 +16,9 @@
   AOE effects are not yet modelled.
 
   Cards that have special effects are not modelled, such as Molten Giant. These
-  cards can have a prediction error of >2 mana. Most other cards are under 1
-  error.
+  cards can have a prediction error of >2 mana. If you take a random card in
+  hearthstone, this model will give you a correct answer about `50%` of the
+  time.  It's correct within `± 1` mana roughly `80%` of the time.
 
   After I get a better dataset, I will be able to update the model to better
   reflect the special effects.
@@ -27,14 +28,18 @@
 ```js
 var predict = require('hearthstone-card-cost')
 
+// Predict Al'Akir!
 var cost = predict({ 
-  attack: 5,
-  health: 4,
+  attack: 3,
+  health: 5,
   taunt: 1,
-  divineShield: 1
+  charge: 1,
+  divineShield: 1,
+  windfury: 1
 })
 
 // predicted cost === 6
+// Al'Akir is overpriced!
 ```
 
 ## API
@@ -47,41 +52,13 @@ attributes:
 
   * attack: `number`
   * health: `number`
-  * rarity: `string`
-      - common
-      - rare
-      - epic
-      - legendary
-  * battlecry: `1 | 0`
-  * charge: `1 | 0`
-  * combo: `1 | 0`
-  * deathrattle: `1 | 0`
-  * divineShield: `1 | 0`
-  * enrage: `1 | 0`
-  * freeze: `1 | 0`
-  * poisonous: `1 | 0`
-  * spellpower: `1 | 0`
-  * stealth: `1 | 0`
-  * taunt: `1 | 0`
-  * windfury: `1 | 0`
-  * playerClass: `string`
-      - dream
-      - druid
-      - hunter
-      - mage
-      - paladin
-      - priest
-      - rogue
-      - shaman
-      - warlock
-      - warrior
-  * race: `string`
-      - beast
-      - demon
-      - dragon
-      - murloc
-      - pirate
-      - totem
+  * battlecry: `0 | 1`
+  * charge: `0 | 1`
+  * divineShield: `0 | 1`
+  * freeze: `0 | 1`
+  * stealth: `0 | 1`
+  * taunt: `0 | 1`
+  * windfury: `0 | 1`
 
 ### predict.real(attributes)
 
